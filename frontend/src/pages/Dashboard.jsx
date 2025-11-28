@@ -38,7 +38,7 @@ const Dashboard = () => {
             const response = await tasksAPI.getTasks(page, limit, filter);
             setTasks(response.data.tasks || []);
             setTotalPages(response.data.totalPages);
-            setTotalTasks(response.data.total);
+            setTotalTasks(response.data.totalPending + response.data.totalCompleted);
             setTotalPending(response.data.totalPending);
             setTotalCompleted(response.data.totalCompleted);
             setError('');
@@ -50,6 +50,10 @@ const Dashboard = () => {
         }
     };
 
+    const handleFilterChange = (newFilter) => {
+        setFilter(newFilter);
+        setPage(1);
+    };
 
     const handleTaskCreated = () => {
         setShowCreateModal(false);
@@ -139,7 +143,8 @@ const Dashboard = () => {
                         <div
                             key={index}
                             className={`stat-card card ${filter === stat.filter ? 'active' : ''}`}
-                            onClick={() => setFilter(stat.filter)}
+                            onClick={() => handleFilterChange(stat.filter)}
+
                         >
                             <div className={`stat-icon stat-icon-${stat.color}`}>{stat.icon}</div>
                             <div className="stat-content">
