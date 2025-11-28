@@ -21,15 +21,16 @@ const Home = () => {
                 <div className="container">
                     <div className="hero-content">
                         <h1 className="hero-title">
-                            Streamline Your
-                            <span className="gradient-text"> Request Management</span>
+                            Organize. Track.
+                            <span className="gradient-text"> Get Things Done.</span>
                         </h1>
 
                         <p className="hero-description">
-                            A powerful, full-stack request management system with role-based
-                            workflows, manager approvals, and real-time tracking. Built with
-                            modern technologies for maximum efficiency.
+                            Break down your workload, track progress in real-time, and stay focused on
+                            what matters most. A beautifully crafted task management experience built
+                            for everyday productivity.
                         </p>
+
 
                         <div className="hero-actions">
                             {isAuthenticated ? (
