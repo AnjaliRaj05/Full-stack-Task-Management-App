@@ -1,10 +1,10 @@
 # Full-stack-Task-Management-App
-
+## Project Deployed Link: [https://lambent-granita-2ed3c2.netlify.app/]
 A smart, full-stack task management platform designed to help you stay in 
 control. Track progress, manage priorities, collaborate effortlessly, and 
 complete tasks faster with a clean and intuitive workflow.
 
-## 🎯 Project Overview
+##  Project Overview
 <img width="1885" height="867" alt="image" src="https://github.com/user-attachments/assets/90eaabcd-a498-4c09-8a69-c54f2cd5e755" />
 
 <p align="center">
@@ -15,7 +15,7 @@ complete tasks faster with a clean and intuitive workflow.
 </p>
 
 
-## 🏗️ Architecture & Tech Stack
+##  Architecture & Tech Stack
 
 ### Backend
 - **Runtime**: Node.js with ES Modules
@@ -29,7 +29,7 @@ complete tasks faster with a clean and intuitive workflow.
 - **Routing**: React Router v6
 - **HTTP Client**: Axios with interceptors
 - **State Management**: React  useEffect Context API
-## 📋 Features
+## Features
 
 ### Backend Features
 ✅ **Architecture**: MVC pattern 
@@ -124,7 +124,7 @@ complete tasks faster with a clean and intuitive workflow.
 - `createdAt`(Timestamp)
 - `updatedAt`(Timestamp)
 
-## 🔐 Project userflow
+##  Project userflow
 
 ### 1. Task Creation
 - Any user and admin can create a task
@@ -181,7 +181,7 @@ request-management/
 ```
 t" to complete it
 
-## 🔒 Security Features
+## Security Features
 
 - **Password Hashing**: bcryptjs with salt rounds
 - **JWT Authentication**: Secure token-based auth
