@@ -1,8 +1,8 @@
-import { Link, useNavigate } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
-import { LogOut, User, LayoutDashboard, Sun, Moon } from 'lucide-react';
-import './Navbar.css';
+import { LogOut, User, CheckSquare, Sun, Moon } from 'lucide-react';
+import '../styles/Navbar.css';
 
 const Navbar = () => {
     const { user, logout, isAuthenticated } = useAuth();
@@ -20,17 +20,12 @@ const Navbar = () => {
                 <div className="navbar-content">
                     <Link to="/" className="navbar-brand">
                         <div className="brand-icon">
-                            <LayoutDashboard size={24} />
+                            <CheckSquare size={24} />
                         </div>
                         <span className="brand-text">Task Manager</span>
                     </Link>
 
                     <div className="navbar-menu">
-
-                        {/* 🌗 Theme Toggle Button */}
-                        <button onClick={toggleTheme} className="theme-btn">
-                            {theme === "light" ? <Moon size={18}/> : <Sun size={18}/>}
-                        </button>
 
                         {isAuthenticated ? (
                             <>
@@ -62,7 +57,9 @@ const Navbar = () => {
                                     Sign Up
                                 </Link>
                             </>
-                        )}
+                        )} <button onClick={toggleTheme} className="theme-btn">
+                            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+                        </button>
                     </div>
                 </div>
             </div>

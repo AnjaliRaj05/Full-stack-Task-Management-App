@@ -128,4 +128,81 @@
     .brand-text {
         display: none;
     }
+} 
+
+/* Theme Toggle Button Styling */
+.theme-btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-base);
+    overflow: hidden;
 }
+
+/* Light Mode - Moon Icon */
+[data-theme='light'] .theme-btn {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+[data-theme='light'] .theme-btn:hover {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+    transform: translateY(-2px);
+}
+
+[data-theme='light'] .theme-btn svg {
+    color: #fef08a;
+    filter: drop-shadow(0 0 8px rgba(254, 240, 138, 0.6));
+    animation: moonGlow 2s ease-in-out infinite;
+}
+
+/* Dark Mode - Sun Icon */
+[data-theme='dark'] .theme-btn {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+}
+
+[data-theme='dark'] .theme-btn:hover {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    box-shadow: 0 6px 20px rgba(251, 191, 36, 0.6);
+    transform: translateY(-2px) rotate(90deg);
+}
+
+[data-theme='dark'] .theme-btn svg {
+    color: #ffffff;
+    filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.8));
+    animation: sunRotate 20s linear infinite;
+}
+
+/* Moon Glow Animation */
+@keyframes moonGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 8px rgba(254, 240, 138, 0.6));
+    }
+    50% {
+        filter: drop-shadow(0 0 15px rgba(254, 240, 138, 0.9));
+    }
+}
+
+/* Sun Rotation Animation */
+@keyframes sunRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Click Animation */
+.theme-btn:active {
+    transform: scale(0.95);
+}
+

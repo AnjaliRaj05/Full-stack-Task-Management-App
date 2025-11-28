@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { UserPlus, Mail, Lock, User, Briefcase, AlertCircle } from 'lucide-react';
-import './Auth.css';
+import '../styles/Auth.css';
 
 const Register = () => {
     const [formData, setFormData] = useState({

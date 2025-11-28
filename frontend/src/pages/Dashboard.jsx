@@ -5,7 +5,7 @@ import CreateTaskModal from '../components/CreateTaskModal';
 import TaskCard from '../components/TaskCard';
 import DeleteTaskModal from '../components/DeleteTaskModal';
 import { Plus, CheckCircle, Clock, AlertCircle } from 'lucide-react';
-import './Dashboard.css';
+import '../styles/Dashboard.css';
 
 const Dashboard = () => {
     const { user } = useAuth();
@@ -30,13 +30,12 @@ const Dashboard = () => {
 
     useEffect(() => {
         fetchTasks();
-    }, [page]);
-
+    }, [page, filter]);
 
     const fetchTasks = async () => {
         try {
             setLoading(true);
-            const response = await tasksAPI.getTasks(page, limit);
+            const response = await tasksAPI.getTasks(page, limit, filter);
             setTasks(response.data.tasks || []);
             setTotalPages(response.data.totalPages);
             setTotalTasks(response.data.total);
@@ -96,9 +95,9 @@ const Dashboard = () => {
     });
 
     const stats = {
-    total: totalTasks,
-    pending: totalPending,
-    completed: totalCompleted,
+        total: totalTasks,
+        pending: totalPending,
+        completed: totalCompleted,
     };
 
     const statCards = [
@@ -119,11 +118,11 @@ const Dashboard = () => {
     return (
         <div className="dashboard-page">
             <div className="container">
-                {/* Header */}
+
                 <div className="dashboard-header">
                     <div>
                         <h1 className="dashboard-title">
-                            Welcome back, {user?.fullname}! 
+                            Welcome back, {user?.fullname}!
                         </h1>
                         <p className="dashboard-subtitle">
                             {isAdmin ? 'Manage tasks created by users' : 'Create and track your tasks'}
@@ -134,7 +133,7 @@ const Dashboard = () => {
                     </button>
                 </div>
 
-                {/* Stats */}
+
                 <div className="stats-grid">
                     {statCards.map((stat, index) => (
                         <div
@@ -151,14 +150,14 @@ const Dashboard = () => {
                     ))}
                 </div>
 
-                {/* Error */}
+
                 {error && (
                     <div className="alert alert-error">
                         <AlertCircle size={20} /> <span>{error}</span>
                     </div>
                 )}
 
-                {/* Task List */}
+
                 <div className="tasks-section">
 
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { X, Send, AlertCircle } from 'lucide-react';
 import { tasksAPI } from '../services/api';
-import './Modal.css';
+import '../styles/Modal.css';
 
 const CreateTaskModal = ({ task, onClose, onSuccess }) => {
     const [formData, setFormData] = useState({

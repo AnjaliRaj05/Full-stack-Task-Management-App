@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, AlertCircle } from 'lucide-react';
-import './Modal.css';
+import '../styles/Modal.css';
 
 const DeleteTaskModal = ({ task, onClose, onConfirm, loading, error }) => {
     if (!task) return null;

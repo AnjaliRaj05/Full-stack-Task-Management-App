@@ -19,16 +19,22 @@ exports.createTaskService = async (user, data) => {
 
 // List tasks with pagination & filtering
 exports.getTasksService = async (user, query) => {
-  const { page = 1, limit = 10, status, search } = query;
+  const { page = 1, limit = 10, filter: filterStatus, search } = query;
+
   const filter = {};
 
-  if (status) filter.status = status.toLowerCase();
-  if (search) filter.title = { $regex: search, $options: 'i' };
+  if (filterStatus && filterStatus !== 'ALL') {
+    filter.status = filterStatus.toLowerCase();
+  }
 
-  // Non-admins can only see their own tasks
+  if (search) {
+    filter.title = { $regex: search, $options: 'i' };
+  }
+
   if (user.role !== 'admin') {
     filter.createdBy = new mongoose.Types.ObjectId(user.id);
   }
+
 
   const skip = (page - 1) * limit;
 
@@ -39,8 +45,8 @@ exports.getTasksService = async (user, query) => {
       .skip(skip)
       .limit(parseInt(limit))
       .populate('createdBy', 'fullname email role'),
-      Task.countDocuments({ ...filter, status: 'pending' }),
-     Task.countDocuments({ ...filter, status: 'completed' })
+    Task.countDocuments({ ...filter, status: 'pending' }),
+    Task.countDocuments({ ...filter, status: 'completed' })
   ]);
 
   return {

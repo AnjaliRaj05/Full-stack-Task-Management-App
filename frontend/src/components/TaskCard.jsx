@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CheckCircle, Edit2, Trash, Calendar, AlertCircle } from 'lucide-react';
 import { tasksAPI } from '../services/api';
-import './RequestCard.css';
+import '../styles/TaskCard.css';
 
 const TaskCard = ({ task, currentUser, onUpdate, onEdit, onDelete }) => {
     const [loading, setLoading] = useState(false);
