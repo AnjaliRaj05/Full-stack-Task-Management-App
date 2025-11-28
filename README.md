@@ -1,14 +1,21 @@
 # Full-stack-Task-Management-App
-
+## Project Deployed Link: [https://lambent-granita-2ed3c2.netlify.app/]
 A smart, full-stack task management platform designed to help you stay in 
 control. Track progress, manage priorities, collaborate effortlessly, and 
 complete tasks faster with a clean and intuitive workflow.
 
-## 🎯 Project Overview
+##  Project Overview
+<img width="1885" height="867" alt="image" src="https://github.com/user-attachments/assets/90eaabcd-a498-4c09-8a69-c54f2cd5e755" />
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8f4ea3fe-3644-4a60-8aa8-4ea1df412795" width="300" />
+  <img src="https://github.com/user-attachments/assets/e86575c7-728e-4852-ac18-d7ad8778366b" width="300" />
+  <img src="https://github.com/user-attachments/assets/50e8beb1-f1be-4da4-ae45-7a76e57a682d" width="300" />
+
+</p>
 
 
-
-## 🏗️ Architecture & Tech Stack
+##  Architecture & Tech Stack
 
 ### Backend
 - **Runtime**: Node.js with ES Modules
@@ -22,7 +29,7 @@ complete tasks faster with a clean and intuitive workflow.
 - **Routing**: React Router v6
 - **HTTP Client**: Axios with interceptors
 - **State Management**: React  useEffect Context API
-## 📋 Features
+## Features
 
 ### Backend Features
 ✅ **Architecture**: MVC pattern 
@@ -117,7 +124,7 @@ complete tasks faster with a clean and intuitive workflow.
 - `createdAt`(Timestamp)
 - `updatedAt`(Timestamp)
 
-## 🔐 Project userflow
+##  Project userflow
 
 ### 1. Task Creation
 - Any user and admin can create a task
@@ -174,7 +181,7 @@ request-management/
 ```
 t" to complete it
 
-## 🔒 Security Features
+## Security Features
 
 - **Password Hashing**: bcryptjs with salt rounds
 - **JWT Authentication**: Secure token-based auth
