@@ -9,15 +9,16 @@ const Navbar = () => {
     const { theme, toggleTheme } = useTheme();
     const navigate = useNavigate();
 
-    const handleLogout = async () => {
-        await logout();
-        navigate("/login");
+    const handleLogout = () => {
+        logout();
+        navigate('/login');
     };
 
     return (
         <nav className="navbar">
             <div className="container">
                 <div className="navbar-content">
+                    {/* Left: Brand */}
                     <Link to="/" className="navbar-brand">
                         <div className="brand-icon">
                             <CheckSquare size={24} />
@@ -25,24 +26,28 @@ const Navbar = () => {
                         <span className="brand-text">Task Manager</span>
                     </Link>
 
-                    <div className="navbar-menu">
+                    {/* Center: Dashboard & User Info */}
+                    {isAuthenticated && (
+                        <div className="navbar-center">
+                            <div className="nav-user">
+                                <div className="user-avatar">
+                                    <User size={18} />
+                                </div>
+                                <div className="user-info">
+                                    <div className="user-name">{user?.name}</div>
+                                    <div className="user-role">{user?.role}</div>
+                                </div>
+                            </div>
+                            <Link to="/dashboard" className="nav-link">
+                                Dashboard
+                            </Link>
+                        </div>
+                    )}
 
+                    {/* Right: Actions */}
+                    <div className="navbar-menu">
                         {isAuthenticated ? (
                             <>
-                                <Link to="/dashboard" className="nav-link">
-                                    Dashboard
-                                </Link>
-
-                                <div className="nav-user">
-                                    <div className="user-avatar">
-                                        <User size={18} />
-                                    </div>
-                                    <div className="user-info">
-                                        <div className="user-name">{user?.name}</div>
-                                        <div className="user-role">{user?.role}</div>
-                                    </div>
-                                </div>
-
                                 <button onClick={handleLogout} className="btn btn-ghost btn-sm">
                                     <LogOut size={18} />
                                     Logout
@@ -57,7 +62,8 @@ const Navbar = () => {
                                     Sign Up
                                 </Link>
                             </>
-                        )} <button onClick={toggleTheme} className="theme-btn">
+                        )}
+                        <button onClick={toggleTheme} className="theme-btn">
                             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
                         </button>
                     </div>
