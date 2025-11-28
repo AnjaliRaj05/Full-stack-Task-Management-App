@@ -27,7 +27,7 @@ api.interceptors.response.use(
         if (error.response?.status === 401) {
             localStorage.removeItem('token');
             localStorage.removeItem('user');
-            window.location.href = '/login';
+            //window.location.href = '/login';
         }
         return Promise.reject(error);
     }
@@ -52,8 +52,8 @@ export const usersAPI = {
 /* ------------------ TASK API ------------------ */
 export const tasksAPI = {
     createTask: (data) => api.post('/tasks', data),
-   getTasks: (page = 1, limit = 10, filter) =>
-  api.get(`/tasks?page=${page}&limit=${limit}&filter=${filter}`),
+    getTasks: (page = 1, limit = 10, filter) =>
+     api.get(`/tasks?page=${page}&limit=${limit}&filter=${filter}`),
     getTaskById: (id) => api.get(`/tasks/${id}`),
     updateTask: (id, data) => api.put(`/tasks/${id}`, data),
     deleteTask: (id) => api.delete(`/tasks/${id}`),

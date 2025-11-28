@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react'; 
+import { createContext, useContext, useState, useEffect } from 'react';
 import { authAPI } from '../services/api';
 
 const AuthContext = createContext(null);
@@ -41,22 +41,30 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const login = async (email, password) => {
+
+
         try {
             setError(null);
             const response = await authAPI.login({ email, password });
-            const { user, token } = response.data;
 
+
+
+            const { user, token } = response.data;
             localStorage.setItem('token', token);
             localStorage.setItem('user', JSON.stringify(user));
             setUser(user);
 
             return { success: true };
         } catch (err) {
+
+
             const message = err.response?.data?.message || "Login failed";
             setError(message);
+
             return { success: false, error: message };
         }
     };
+
 
     const register = async (userData) => {
         try {
@@ -76,11 +84,15 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const logout = () => {
+    const logout = async () => {
+        try {
+            await authAPI.logout();
+        } catch (err) {
+            console.error(err);
+        }
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         setUser(null);
-        authAPI.logout().catch(() => {}); // Fire and forget
     };
 
     const updateUser = (updatedUser) => {

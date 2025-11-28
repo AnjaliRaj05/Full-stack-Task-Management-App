@@ -21,25 +21,31 @@ const Login = () => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setError('');
+    e.preventDefault();
+    console.log("🟦 SUBMIT PRESSED");
 
-        try {
-            const result = await login(formData.email, formData.password);
-            console.log(result);
-            if (result.success) {
-                navigate('/dashboard');
-            } else {
-                setError(result.error || 'Login failed');
-            }
-        } catch (err) {
-            console.log("login failed", err);
-            setError('Something went wrong. Please try again.');
+    setLoading(true);
+    setError('');
+
+    try {
+        const result = await login(formData.email, formData.password);
+
+        console.log("🟩 RESULT FROM login():", result);
+
+        if (result.success) {
+            navigate('/dashboard');
+        } else {
+            console.log("🟧 Setting error:", result.error);
+            setError(result.error || 'Login failed');
         }
+    } catch (err) {
+        console.log("🔥 ERROR in handleSubmit:", err);
+        setError('Something went wrong.');
+    }
 
-        setLoading(false);
-    };
+    setLoading(false);
+};
+
 
     return (
         <div className="auth-page">
