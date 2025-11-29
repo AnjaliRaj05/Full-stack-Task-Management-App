@@ -8,14 +8,14 @@ complete tasks faster with a clean and intuitive workflow.
 <img width="1885" height="867" alt="image" src="https://github.com/user-attachments/assets/90eaabcd-a498-4c09-8a69-c54f2cd5e755" />
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/8f4ea3fe-3644-4a60-8aa8-4ea1df412795" width="300" />
+  <img width="1116" height="838" alt="image" src="https://github.com/user-attachments/assets/5db8a776-2913-41e5-8aac-285b79841c30" />
   <img src="https://github.com/user-attachments/assets/e86575c7-728e-4852-ac18-d7ad8778366b" width="300" />
   <img src="https://github.com/user-attachments/assets/50e8beb1-f1be-4da4-ae45-7a76e57a682d" width="300" />
 
 </p>
 
 
-##  Architecture & Tech Stack
+##  Tech Stack
 
 ### Backend
 - **Runtime**: Node.js with ES Modules
@@ -23,32 +23,48 @@ complete tasks faster with a clean and intuitive workflow.
 - **Database**: MONGODB
 - **Authentication**: JWT (JSON Web Tokens)
 - **Security**: bcryptjs, CORS
-
+- **Centralized Error Middleware**: Consistent error responses
+  
 ### Frontend
 - **Framework**: React 18 with Vite
-- **Routing**: React Router v6
+- **Routing**: React Router v6 Client-side routing
 - **HTTP Client**: Axios with interceptors
 - **State Management**: React  useEffect Context API
+- **Lucide React** - Modern icon library
 ## Features
 
-### Backend Features
-✅ **Architecture**: MVC pattern 
-✅ **Business Logic**: All requirements implemented with validation
-✅ **Authentication & Authorization**: JWT-based with role-based access control
-✅ **Error Handling**: Centralized error middleware
-✅ **Database**: MONGODB
-✅ **Security**: CORS, password hashing
+### Authentication & Security
+- JWT-based authentication with secure token management
+- Role-based access control (Admin & User roles)
+- Password hashing with bcrypt
+- Protected routes and API endpoints
+- CORS configuration for secure cross-origin requests
 
 ### Frontend Features
-✅ **Modern UI**: Light and Dark Theme
-✅ **Responsive Design**: Mobile-first approach
-✅ **Authentication**: Login, Register, Protected Routes
-✅ **Dashboard**: Role-based views for Admin and users
-✅ **Task Management for users**: Create, update
-✅ **Real-time Updates**: Automatic refresh after actions
-✅ **Error Handling**: User-friendly error messages
-✅ **Loading States**: Loding Spinners 
+- UI Design: Clean, intuitive interface with smooth animations
+- Theme Support: Toggle between Light and Dark themes
+- Responsive Design: Mobile-first approach, works seamlessly on all devices
+- Real-time Updates: Automatic refresh after task operations
+- Loading States: Professional loading spinners for better UX
+- Error Handling: User-friendly error messages and validation feedback
 
+##  Task Management project userflow
+
+### 1. Task Creation
+- Any user and admin can create a task
+- Every task is linked to the user who created it (createdBy).
+- Tasks are created with a default status of pending.
+
+### 2. Task Viewing Permissions
+**For Users** 
+- Create new tasks with title, description, and priority.
+- Update task status and details
+- View personal task dashboard
+
+**For Admin**
+-  View all users' tasks
+-  Manage users and tasks across the system
+-  Role-based dashboard views.
 
 ### Prerequisites
 - Node.js 
@@ -102,7 +118,6 @@ complete tasks faster with a clean and intuitive workflow.
    npm run dev
    ```
    
-   Frontend will run on `http://localhost:5173`
 
 ## 📊 Database Schema
 
@@ -124,32 +139,8 @@ complete tasks faster with a clean and intuitive workflow.
 - `createdAt`(Timestamp)
 - `updatedAt`(Timestamp)
 
-##  Project userflow
 
-### 1. Task Creation
-- Any user and admin can create a task
-- Every task is linked to the user who created it (createdBy).
-- Tasks are created with a default status of pending.
-
-### 2. Task Viewing Permissions
-- **Users** 
-- Can view only their own tasks.
-- No access to other users' tasks.
-- **Admin**
--  can view all tasks created by every user.
--  Has complete visibility across the system.
-
-### 3. Task Update Rules
-- Only the user who created the task can update it.
-(Title, description, or status can be updated—except deletion.)
-
-- Admins cannot update tasks created by users.
-
-### 4. Task Deletion Rules
-- Only Admin has the authority to delete tasks.
-- Users cannot delete any task (not even their own).
-
-## 📁 Project Structure
+## 📁 Directory Structure
 
 ```
 request-management/
@@ -179,15 +170,14 @@ request-management/
 │   └── package.json
 └── README.md
 ```
-t" to complete it
+" to complete it
 
-## Security Features
-
-- **Password Hashing**: bcryptjs with salt rounds
-- **JWT Authentication**: Secure token-based auth
-- **CORS**: Configured for frontend origin
-- **Role-Based Access Control**: Middleware authorization
-
+## Backend Architecture
+- MVC Pattern: Clean separation of concerns
+- Business Logic: Complete validation and error handling
+- Centralized Error Middleware: Consistent error responses
+- MongoDB Integration: Efficient NoSQL database operations
+- RESTful API: Well-structured endpoint
 
 ### Backend Development
 ```bash
