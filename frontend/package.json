@@ -17,13 +17,13 @@
     "@dnd-kit/utilities": "^3.2.2",
     "axios": "^1.6.2",
     "lucide-react": "^0.294.0",
-    "react": "^18.2.0",
+    "react": "^19.2.5",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.6.0",
     "react-router-dom": "^6.20.1"
   },
   "devDependencies": {
-    "@types/react": "^18.2.43",
+    "@types/react": "^19.2.14",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^9.39.4",
