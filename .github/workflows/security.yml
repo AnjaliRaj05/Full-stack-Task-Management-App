@@ -1,0 +1,36 @@
+name: Security Audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '17 6 * * *'  # daily 06:17 UTC
+
+jobs:
+  audit:
+    name: npm audit (${{ matrix.workspace }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        workspace: [backend, frontend]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: ${{ matrix.workspace }}/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ${{ matrix.workspace }}
+        run: npm ci
+
+      - name: npm audit (high+ severity)
+        working-directory: ${{ matrix.workspace }}
+        run: npm audit --audit-level=high
+        continue-on-error: true   # surface issues without blocking CI; tighten once clean
